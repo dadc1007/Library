@@ -1,0 +1,28 @@
+# Directorios generados por Maven
+target/
+
+# Archivos y directorios de configuración de Maven
+.mvn/
+
+# Archivos generados por IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Archivos específicos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de logs y temporales
+*.log
+
+# Archivos de configuración de Maven (opcional, si no se quiere compartir)
+mvnw
+mvnw.cmd
+
+# Archivos generados por Eclipse
+.settings/
+.classpath
+.project
