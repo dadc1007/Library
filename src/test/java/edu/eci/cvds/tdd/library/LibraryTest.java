@@ -90,4 +90,15 @@ public class LibraryTest {
         Loan loan2 = library.loanABook("1029938226", "978-958-30044-4-5");
         assertNull(loan2);
     }
+
+    @Test
+    public void notShouldLoanABookForTheSameBook() {
+        Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
+        Loan loan2 = library.loanABook("1028461832", "978-607-99498-0-8");
+        assertNull(loan2);
+
+        Loan loan3 = library.loanABook("1028461832", "978-849-75922-0-8");
+        Loan loan4 = library.loanABook("1032373105", "978-607-99498-0-8");
+        assertNull(loan4);
+    }
 }
