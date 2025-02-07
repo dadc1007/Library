@@ -38,7 +38,7 @@ public class LibraryTest {
         book1 = new Book("El principito", "Antoine de Saint-Exupéry", "978-607-99498-0-8");
         book2 = new Book("El principito", "Antoine de Saint-Exupéry", "978-849-83814-9-8");
         book3 = new Book("El principito", "Antoine de Saint-Exupéry", "978-847-88871-9-4");
-        book4 = new Book("cien años de soledad", "Gabriel García Márquez", "978-849-75922-0-8");
+        book4 = new Book("Cien años de soledad", "Gabriel García Márquez", "978-849-75922-0-8");
         book5 = new Book("Don Quijote de la Mancha", "Miguel de Cervantes", "978-958-30044-4-5");
 
         user1 = createUser("Daniel", "1032373105");
@@ -71,6 +71,16 @@ public class LibraryTest {
         assertEquals(1,  library.getNumberBooks("El principito"));
         library.addBook(book2);
         assertEquals(2,  library.getNumberBooks("El principito"));
+    }
+
+    @Test
+    public void shouldAmountBeOneForNewBook() {
+        library.addBook(book1);
+        assertEquals(1,  library.getNumberBooks("El principito"));
+        library.addBook(book4);
+        assertEquals(1,  library.getNumberBooks("Cien años de soledad"));
+        library.addBook(book5);
+        assertEquals(1,  library.getNumberBooks("Don Quijote de la Mancha"));
     }
 
     @Test
