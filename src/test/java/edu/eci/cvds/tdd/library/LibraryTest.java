@@ -66,6 +66,14 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldIncreaseAmountIfBookExists() {
+        library.addBook(book1);
+        assertEquals(1,  library.getNumberBooks("El principito"));
+        library.addBook(book2);
+        assertEquals(2,  library.getNumberBooks("El principito"));
+    }
+
+    @Test
     public void shouldLoanABook() {
         // Loan to Daniel
         Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");

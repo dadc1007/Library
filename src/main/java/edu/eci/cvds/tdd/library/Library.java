@@ -75,4 +75,7 @@ public class Library {
         return users.add(user);
     }
 
+    public int getNumberBooks(String name) {
+        return 0;
+    }
 }
