@@ -2,6 +2,7 @@ package edu.eci.cvds.tdd.library;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -79,5 +80,14 @@ public class LibraryTest {
         assertEquals(LoanStatus.ACTIVE, loan2.getStatus());
         assertEquals("1028461832", loan2.getUser().getId());
         assertEquals("978-849-75922-0-8", loan2.getBook().getIsbn());
+    }
+
+    @Test
+    public void notShouldLoanABookIfUserNotExist() {
+        Loan loan1 = library.loanABook("1028366452", "978-849-83814-9-8");
+        assertNull(loan1);
+        
+        Loan loan2 = library.loanABook("1029938226", "978-958-30044-4-5");
+        assertNull(loan2);
     }
 }
