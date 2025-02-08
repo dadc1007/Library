@@ -75,7 +75,7 @@ public class Library {
         return users.add(user);
     }
 
-    public int getNumberBooks(String isbn) {
+    public int getNumberBooks(Book book) {
         return 0;
     }
 }
