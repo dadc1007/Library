@@ -202,4 +202,26 @@ public class LibraryTest {
         library.returnLoan(loan4);
         assertEquals(1, library.getNumberBooks("978-958-30044-4-5"));
     }
+
+    @Test
+    public void shouldReturnLoan(){
+        addBooks();
+
+        Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
+        Loan loan2 = library.loanABook("1028461832", "978-607-99498-0-8");
+        Loan loan3 = library.loanABook("1032373105", "978-849-75922-0-8");
+        Loan loan4 = library.loanABook("1028461832", "978-958-30044-4-5");
+
+        library.returnLoan(loan1);
+        assertEquals(LoanStatus.RETURNED, loan1.getStatus());
+
+        library.returnLoan(loan2);
+        assertEquals(LoanStatus.RETURNED, loan2.getStatus());
+
+        library.returnLoan(loan3);
+        assertEquals(LoanStatus.RETURNED, loan3.getStatus());
+
+        library.returnLoan(loan4);
+        assertEquals(LoanStatus.RETURNED, loan4.getStatus());
+    }
 }
