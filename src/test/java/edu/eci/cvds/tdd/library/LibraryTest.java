@@ -91,22 +91,28 @@ public class LibraryTest {
         assertEquals(1,  library.getNumberBooks("978-958-30044-4-5"));
     }
 
-    // @Test
-    // public void shouldLoanABook() {
-    //     // Loan to Daniel
-    //     Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
-    //     assertNotNull(loan1);
-    //     assertEquals(LoanStatus.ACTIVE, loan1.getStatus());
-    //     assertEquals("1032373105", loan1.getUser().getId());
-    //     assertEquals("978-607-99498-0-8", loan1.getBook().getIsbn());
+    @Test
+    public void shouldLoanABook() {
+        // Loan to Daniel
+        Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
+        assertNotNull(loan1);
+        assertEquals(LoanStatus.ACTIVE, loan1.getStatus());
+        assertEquals("1032373105", loan1.getUser().getId());
+        assertEquals("978-607-99498-0-8", loan1.getBook().getIsbn());
+
+        Loan loan2 = library.loanABook("1032373105", "978-847-88871-9-4");
+        assertNotNull(loan2);
+        assertEquals(LoanStatus.ACTIVE, loan2.getStatus());
+        assertEquals("1032373105", loan2.getUser().getId());
+        assertEquals("978-847-88871-9-4", loan2.getBook().getIsbn());
         
-    //     // Loan to Vicente
-    //     Loan loan2 = library.loanABook("1028461832", "978-849-75922-0-8");
-    //     assertNotNull(loan2);
-    //     assertEquals(LoanStatus.ACTIVE, loan2.getStatus());
-    //     assertEquals("1028461832", loan2.getUser().getId());
-    //     assertEquals("978-849-75922-0-8", loan2.getBook().getIsbn());
-    // }
+        // Loan to Vicente
+        Loan loan3 = library.loanABook("1028461832", "978-849-75922-0-8");
+        assertNotNull(loan3);
+        assertEquals(LoanStatus.ACTIVE, loan3.getStatus());
+        assertEquals("1028461832", loan3.getUser().getId());
+        assertEquals("978-849-75922-0-8", loan3.getBook().getIsbn());
+    }
 
     // @Test
     // public void notShouldLoanABookIfUserNotExist() {
