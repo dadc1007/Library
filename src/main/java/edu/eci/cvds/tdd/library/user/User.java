@@ -1,7 +1,5 @@
 package edu.eci.cvds.tdd.library.user;
 
-import edu.eci.cvds.tdd.library.book.Book;
-
 public class User {
     private String name;
     private String id;
