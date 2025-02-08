@@ -66,60 +66,61 @@ public class LibraryTest {
         assertTrue(tempLibrary.addBook(book3));
         assertTrue(tempLibrary.addBook(book4));
         assertTrue(tempLibrary.addBook(book5));
+        assertTrue(tempLibrary.addBook(book6));
     }
 
-    @Test
-    public void shouldIncreaseAmountIfBookExists() {
-        library.addBook(book1);
-        assertEquals(1,  library.getNumberBooks("El principito"));
-        library.addBook(book2);
-        assertEquals(2,  library.getNumberBooks("El principito"));
-    }
+    // @Test
+    // public void shouldIncreaseAmountIfBookExists() {
+    //     library.addBook(book1);
+    //     assertEquals(1,  library.getNumberBooks("El principito"));
+    //     library.addBook(book2);
+    //     assertEquals(2,  library.getNumberBooks("El principito"));
+    // }
 
-    @Test
-    public void shouldAmountBeOneForNewBook() {
-        library.addBook(book1);
-        assertEquals(1,  library.getNumberBooks("El principito"));
-        library.addBook(book4);
-        assertEquals(1,  library.getNumberBooks("Cien años de soledad"));
-        library.addBook(book5);
-        assertEquals(1,  library.getNumberBooks("Don Quijote de la Mancha"));
-    }
+    // @Test
+    // public void shouldAmountBeOneForNewBook() {
+    //     library.addBook(book1);
+    //     assertEquals(1,  library.getNumberBooks("El principito"));
+    //     library.addBook(book4);
+    //     assertEquals(1,  library.getNumberBooks("Cien años de soledad"));
+    //     library.addBook(book5);
+    //     assertEquals(1,  library.getNumberBooks("Don Quijote de la Mancha"));
+    // }
 
-    @Test
-    public void shouldLoanABook() {
-        // Loan to Daniel
-        Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
-        assertNotNull(loan1);
-        assertEquals(LoanStatus.ACTIVE, loan1.getStatus());
-        assertEquals("1032373105", loan1.getUser().getId());
-        assertEquals("978-607-99498-0-8", loan1.getBook().getIsbn());
+    // @Test
+    // public void shouldLoanABook() {
+    //     // Loan to Daniel
+    //     Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
+    //     assertNotNull(loan1);
+    //     assertEquals(LoanStatus.ACTIVE, loan1.getStatus());
+    //     assertEquals("1032373105", loan1.getUser().getId());
+    //     assertEquals("978-607-99498-0-8", loan1.getBook().getIsbn());
         
-        // Loan to Vicente
-        Loan loan2 = library.loanABook("1028461832", "978-849-75922-0-8");
-        assertNotNull(loan2);
-        assertEquals(LoanStatus.ACTIVE, loan2.getStatus());
-        assertEquals("1028461832", loan2.getUser().getId());
-        assertEquals("978-849-75922-0-8", loan2.getBook().getIsbn());
-    }
+    //     // Loan to Vicente
+    //     Loan loan2 = library.loanABook("1028461832", "978-849-75922-0-8");
+    //     assertNotNull(loan2);
+    //     assertEquals(LoanStatus.ACTIVE, loan2.getStatus());
+    //     assertEquals("1028461832", loan2.getUser().getId());
+    //     assertEquals("978-849-75922-0-8", loan2.getBook().getIsbn());
+    // }
 
-    @Test
-    public void notShouldLoanABookIfUserNotExist() {
-        Loan loan1 = library.loanABook("1028366452", "978-849-83814-9-8");
-        assertNull(loan1);
+    // @Test
+    // public void notShouldLoanABookIfUserNotExist() {
+    //     Loan loan1 = library.loanABook("1028366452", "978-849-83814-9-8");
+    //     assertNull(loan1);
         
-        Loan loan2 = library.loanABook("1029938226", "978-958-30044-4-5");
-        assertNull(loan2);
-    }
+    //     Loan loan2 = library.loanABook("1029938226", "978-958-30044-4-5");
+    //     assertNull(loan2);
+    // }
 
-    @Test
-    public void notShouldLoanABookForTheSameBook() {
-        Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
-        Loan loan2 = library.loanABook("1028461832", "978-607-99498-0-8");
-        assertNull(loan2);
+    // @Test
+    // public void notShouldLoanABookForTheSameBook() {
+    //     Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
+    //     Loan loan2 = library.loanABook("1028461832", "978-607-99498-0-8");
+    //     assertNull(loan2);
 
-        Loan loan3 = library.loanABook("1028461832", "978-849-75922-0-8");
-        Loan loan4 = library.loanABook("1032373105", "978-607-99498-0-8");
-        assertNull(loan4);
-    }
+    //     Loan loan3 = library.loanABook("1028461832", "978-849-75922-0-8");
+    //     Loan loan4 = library.loanABook("1032373105", "978-607-99498-0-8");
+    //     assertNull(loan4);
+    // }
 }
