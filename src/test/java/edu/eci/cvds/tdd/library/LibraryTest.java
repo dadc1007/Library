@@ -150,11 +150,11 @@ public class LibraryTest {
         addBooks();
         
         library.loanABook("1032373105", "978-607-99498-0-8");
-        Loan loan2 = library.loanABook("1028461832", "978-607-99498-0-8");
+        Loan loan2 = library.loanABook("1032373105", "978-607-99498-0-8");
         assertNull(loan2);
 
         library.loanABook("1028461832", "978-607-99498-0-8");
-        Loan loan4 = library.loanABook("1032373105", "978-607-99498-0-8");
+        Loan loan4 = library.loanABook("1028461832", "978-607-99498-0-8");
         assertNull(loan4);
     }
 
