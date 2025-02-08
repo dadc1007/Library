@@ -69,13 +69,15 @@ public class LibraryTest {
         assertTrue(tempLibrary.addBook(book6));
     }
 
-    // @Test
-    // public void shouldIncreaseAmountIfBookExists() {
-    //     library.addBook(book1);
-    //     assertEquals(1,  library.getNumberBooks("El principito"));
-    //     library.addBook(book2);
-    //     assertEquals(2,  library.getNumberBooks("El principito"));
-    // }
+    @Test
+    public void shouldIncreaseAmountIfBookExists() {
+        library.addBook(book1);
+        assertEquals(1,  library.getNumberBooks("978-607-99498-0-8"));
+        library.addBook(book2);
+        assertEquals(2,  library.getNumberBooks("978-607-99498-0-8"));
+        library.addBook(book3);
+        assertEquals(3,  library.getNumberBooks("978-607-99498-0-8"));
+    }
 
     // @Test
     // public void shouldAmountBeOneForNewBook() {
