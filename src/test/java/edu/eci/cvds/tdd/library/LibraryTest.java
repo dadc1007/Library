@@ -20,6 +20,7 @@ public class LibraryTest {
     private Book book3;
     private Book book4;
     private Book book5;
+    private Book book6;
     private User user1;
     private User user2;
 
@@ -36,10 +37,11 @@ public class LibraryTest {
         library = new Library();
 
         book1 = new Book("El principito", "Antoine de Saint-Exupéry", "978-607-99498-0-8");
-        book2 = new Book("El principito", "Antoine de Saint-Exupéry", "978-849-83814-9-8");
-        book3 = new Book("El principito", "Antoine de Saint-Exupéry", "978-847-88871-9-4");
-        book4 = new Book("Cien años de soledad", "Gabriel García Márquez", "978-849-75922-0-8");
-        book5 = new Book("Don Quijote de la Mancha", "Miguel de Cervantes", "978-958-30044-4-5");
+        book2 = new Book("El principito", "Antoine de Saint-Exupéry", "978-607-99498-0-8");
+        book3 = new Book("El principito", "Antoine de Saint-Exupéry", "978-607-99498-0-8");
+        book4 = new Book("El principito", "Antoine de Saint-Exupéry", "978-847-88871-9-4");
+        book5 = new Book("Cien años de soledad", "Gabriel García Márquez", "978-849-75922-0-8");
+        book6 = new Book("Don Quijote de la Mancha", "Miguel de Cervantes", "978-958-30044-4-5");
 
         user1 = createUser("Daniel", "1032373105");
         user2 = createUser("Vicente", "1028461832");
@@ -49,6 +51,7 @@ public class LibraryTest {
         library.addBook(book3);
         library.addBook(book4);
         library.addBook(book5);
+        library.addBook(book6);
 
         library.addUser(user1);
         library.addUser(user2);
