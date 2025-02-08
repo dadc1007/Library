@@ -224,4 +224,16 @@ public class LibraryTest {
         library.returnLoan(loan4);
         assertEquals(LoanStatus.RETURNED, loan4.getStatus());
     }
+
+
+    @Test
+    public void shouldLoanSameBookWhenReturnLoan(){
+        addBooks();
+
+        Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
+        library.returnLoan(loan1);
+        Loan loan2 = library.loanABook("1032373105", "978-607-99498-0-8");
+        assertNotNull(loan2);
+        
+    }
 }

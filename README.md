@@ -61,6 +61,15 @@ Vicente Garzon Rios.
 ![alt text](assets/shouldDecreaseBookCountWhenLoanIsCreated.png)  
 ![alt text](assets/shouldDecreaseBookCountWhenLoanIsCreated_test.png)  
 
+12. Implementamos las pruebas para el metodo returnLoan y luego verificamos que estan fallen.  
+
+![alt text](assets/shouldIncreasedBookCountWhenLoanIsReturned.png)  
+![alt text](assets/shouldIncreasedBookCountWhenLoanIsReturned_Test.png)  
+![alt text](assets/shouldReturnLoan.png)  
+![alt text](assets/shouldReturnLoan_test.png)  
+![alt text](assets/shouldLoanSameBookWhenReturnLoan.png)  
+![alt text](assets/shouldLoanSameBookWhenReturnLoan_Test.png)  
+
 11. Implementamos el método addBook. Sobrescribimos el método hashCode en la clase Book para que los libros con el mismo isbn sean tratados como la misma clave en el HashMap de la clase Library. Esto evita duplicados no deseados y permite gestionar correctamente la cantidad de ejemplares de cada libro.  
 
 ![alt text](assets/addBook_implementation.png)  
