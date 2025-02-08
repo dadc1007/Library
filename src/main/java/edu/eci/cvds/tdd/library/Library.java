@@ -2,8 +2,10 @@ package edu.eci.cvds.tdd.library;
 
 import edu.eci.cvds.tdd.library.book.Book;
 import edu.eci.cvds.tdd.library.loan.Loan;
+import edu.eci.cvds.tdd.library.loan.LoanStatus;
 import edu.eci.cvds.tdd.library.user.User;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,8 +64,16 @@ public class Library {
      * @return The new created loan.
      */
     public Loan loanABook(String userId, String isbn) {
-        //TODO Implement the login of loan a book to a user based on the UserId and the isbn.
-        return new Loan();
+        User user = getUser(userId);
+        Book book = getBook(isbn);
+    
+        if (user != null && book != null) {
+            if (bookAvailable(book) && !hasActiveLoan(user, book)) {
+                return createLoan(user, book);
+            }
+        }
+    
+        return null;
     }
 
     /**
@@ -89,6 +99,67 @@ public class Library {
     }
 
     public int getNumberBooks(String isbn) {
+        Book book = getBook(isbn);
+
+        if (book != null) {
+            return books.get(book);
+        }
+
         return 0;
+    }
+
+    private User getUser(String userId) {
+        for (User user : users) {
+            if (user.getId().equals(userId)) {
+                return user;
+            }
+        }
+
+        return null;
+    }
+
+    private Book getBook(String isbn) {
+        for (Map.Entry<Book, Integer> entry : books.entrySet()) {
+            if (entry.getKey().getIsbn().equals(isbn)) {
+                return entry.getKey();
+            }
+        }
+
+        return null;
+    }
+
+    private boolean bookAvailable(Book book) {
+        if (books.get(book) > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean hasActiveLoan(User user, Book book) {
+        for (Loan loan : loans) {
+            if (loan.getUser().equals(user) && loan.getBook().equals(book) && loan.getStatus() == LoanStatus.ACTIVE) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void decreaseBookCount(Book book) {
+        books.put(book, books.get(book) - 1);
+    }
+
+    private Loan createLoan(User user, Book book) {
+        Loan loan = new Loan();
+        loan.setUser(user);
+        loan.setBook(book);
+        loan.setStatus(LoanStatus.ACTIVE);
+        loan.setLoanDate(LocalDateTime.now());
+
+        decreaseBookCount(book);
+        loans.add(loan);
+
+        return loan;
     }
 }
