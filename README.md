@@ -21,5 +21,23 @@ Vicente Garzon Rios.
 ![alt text](assets/loanStatus_enum.png)  
 ![alt text](assets/user_class.png)  
 ![alt text](assets/library_class.png)  
-8. Agregamos la dependencia de jacoco.  
+8. Creamos la clase de pruebas para Library.  
+![alt text](assets/LibraryTest.png)  
+9. Implementamos las pruebas para el metodo addBook y luego verificamos que estas fallen.  
+![alt text](assets/shouldAddBook.png)  
+![alt text](assets/shouldAddBook_test.png)  
+![alt text](assets/shouldIncreaseAmountIfBookExists.png)  
+![alt text](assets/shouldIncreaseAmountIfBookExists_test.png)  
+![alt text](assets/shouldAmountBeOneForNewBook.png)  
+![alt text](assets/shouldAmountBeOneForNewBook_test.png)
+10. Implementamos las pruebas para el metodo loanBook y luego verificamos que estas fallen. 
+![alt text](assets/shouldLoanABook.png)  
+![alt text](assets/shouldLoanABook_test.png)  
+![alt text](assets/notShouldLoanABookIfUserNotExist.png)  
+![alt text](assets/notShouldLoanABookIfUserNotExist_test.png)  
+![alt text](assets/notShouldLoanABookForTheSameBook.png)  
+![alt text](assets/notShouldLoanABookForTheSameBook_test.png)  
+
+
+x. Agregamos la dependencia de jacoco.  
  ![alt text](assets/jacoco_dependence.png)  
