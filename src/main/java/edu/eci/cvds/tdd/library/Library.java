@@ -87,4 +87,8 @@ public class Library {
     public int getNumberBooks(Book book) {
         return books.get(book);
     }
+
+    public int getNumberBooks(String isbn) {
+        return 0;
+    }
 }

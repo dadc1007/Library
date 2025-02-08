@@ -121,9 +121,9 @@ public class LibraryTest {
         addBooks();
         
         // Loan to Daniel
-        Loan loan1 = library.loanABook("1032373105", "978-847-88871-9-4");
-        Loan loan2 = library.loanABook("1032373105", "978-849-75922-0-8");
-        Loan loan3 = library.loanABook("1032373105", "978-958-30044-4-5");
+        library.loanABook("1032373105", "978-847-88871-9-4");
+        library.loanABook("1032373105", "978-849-75922-0-8");
+        library.loanABook("1032373105", "978-958-30044-4-5");
         
         // Cannot loan to Vicente
         Loan loan4 = library.loanABook("1028461832", "978-847-88871-9-4");
@@ -149,12 +149,31 @@ public class LibraryTest {
     public void notShouldLoanABookForTheSameBook() {
         addBooks();
         
-        Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
+        library.loanABook("1032373105", "978-607-99498-0-8");
         Loan loan2 = library.loanABook("1028461832", "978-607-99498-0-8");
         assertNull(loan2);
 
-        Loan loan3 = library.loanABook("1028461832", "978-607-99498-0-8");
+        library.loanABook("1028461832", "978-607-99498-0-8");
         Loan loan4 = library.loanABook("1032373105", "978-607-99498-0-8");
         assertNull(loan4);
+    }
+
+    @Test
+    public void shouldDecreaseBookCountWhenLoanIsCreated() {
+        addBooks();
+
+        assertEquals(3, library.getNumberBooks("978-607-99498-0-8"));
+        library.loanABook("1032373105", "978-607-99498-0-8");
+        assertEquals(2, library.getNumberBooks("978-607-99498-0-8"));
+        library.loanABook("1028461832", "978-607-99498-0-8");
+        assertEquals(1, library.getNumberBooks("978-607-99498-0-8"));
+        
+        assertEquals(1, library.getNumberBooks("978-849-75922-0-8"));
+        library.loanABook("1032373105", "978-849-75922-0-8");
+        assertEquals(0, library.getNumberBooks("978-849-75922-0-8"));
+
+        assertEquals(1, library.getNumberBooks("978-958-30044-4-5"));
+        library.loanABook("1028461832", "978-958-30044-4-5");
+        assertEquals(0, library.getNumberBooks("978-958-30044-4-5"));
     }
 }
