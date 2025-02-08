@@ -31,6 +31,15 @@ public class LibraryTest {
 
         return user;
     }
+
+    private void addBooks() {
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+        library.addBook(book4);
+        library.addBook(book5);
+        library.addBook(book6);
+    }
     
     @BeforeEach
     public void setUp() {
@@ -46,53 +55,46 @@ public class LibraryTest {
         user1 = createUser("Daniel", "1032373105");
         user2 = createUser("Vicente", "1028461832");
 
-        library.addBook(book1);
-        library.addBook(book2);
-        library.addBook(book3);
-        library.addBook(book4);
-        library.addBook(book5);
-        library.addBook(book6);
-
         library.addUser(user1);
         library.addUser(user2);
     }
 
     @Test
     public void shouldAddBook() {
-        Library tempLibrary = new Library();
-
-        assertTrue(tempLibrary.addBook(book1));
-        assertTrue(tempLibrary.addBook(book2));
-        assertTrue(tempLibrary.addBook(book3));
-        assertTrue(tempLibrary.addBook(book4));
-        assertTrue(tempLibrary.addBook(book5));
-        assertTrue(tempLibrary.addBook(book6));
+        assertTrue(library.addBook(book1));
+        assertTrue(library.addBook(book2));
+        assertTrue(library.addBook(book3));
+        assertTrue(library.addBook(book4));
+        assertTrue(library.addBook(book5));
+        assertTrue(library.addBook(book6));
     }
 
     @Test
     public void shouldIncreaseAmountIfBookExists() {
         library.addBook(book1);
-        assertEquals(1,  library.getNumberBooks("978-607-99498-0-8"));
+        assertEquals(1,  library.getNumberBooks(book1));
         library.addBook(book2);
-        assertEquals(2,  library.getNumberBooks("978-607-99498-0-8"));
+        assertEquals(2,  library.getNumberBooks(book2));
         library.addBook(book3);
-        assertEquals(3,  library.getNumberBooks("978-607-99498-0-8"));
+        assertEquals(3,  library.getNumberBooks(book3));
     }
 
     @Test
     public void shouldAmountBeOneForNewBook() {
         library.addBook(book1);
-        assertEquals(1,  library.getNumberBooks("978-607-99498-0-8"));
+        assertEquals(1,  library.getNumberBooks(book1));
         library.addBook(book4);
-        assertEquals(1,  library.getNumberBooks("978-847-88871-9-4"));
+        assertEquals(1,  library.getNumberBooks(book4));
         library.addBook(book5);
-        assertEquals(1,  library.getNumberBooks("978-849-75922-0-8"));
+        assertEquals(1,  library.getNumberBooks(book5));
         library.addBook(book6);
-        assertEquals(1,  library.getNumberBooks("978-958-30044-4-5"));
+        assertEquals(1,  library.getNumberBooks(book6));
     }
 
     @Test
     public void shouldLoanABook() {
+        addBooks();
+
         // Loan to Daniel
         Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
         assertNotNull(loan1);
@@ -116,6 +118,8 @@ public class LibraryTest {
     
     @Test
     public void notShouldLoanABookIfIsNotAvailable() {
+        addBooks();
+        
         // Loan to Daniel
         Loan loan1 = library.loanABook("1032373105", "978-847-88871-9-4");
         Loan loan2 = library.loanABook("1032373105", "978-849-75922-0-8");
@@ -132,6 +136,8 @@ public class LibraryTest {
 
     @Test
     public void notShouldLoanABookIfUserNotExist() {
+        addBooks();
+
         Loan loan1 = library.loanABook("1028366452", "978-607-99498-0-8");
         assertNull(loan1);
         
@@ -141,6 +147,8 @@ public class LibraryTest {
 
     @Test
     public void notShouldLoanABookForTheSameBook() {
+        addBooks();
+        
         Loan loan1 = library.loanABook("1032373105", "978-607-99498-0-8");
         Loan loan2 = library.loanABook("1028461832", "978-607-99498-0-8");
         assertNull(loan2);
