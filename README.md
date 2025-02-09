@@ -61,7 +61,7 @@ Vicente Garzon Rios.
 ![alt text](assets/shouldDecreaseBookCountWhenLoanIsCreated.png)  
 ![alt text](assets/shouldDecreaseBookCountWhenLoanIsCreated_test.png)  
 
-12. Implementamos las pruebas para el metodo returnLoan y luego verificamos que estan fallen.  
+11. Implementamos las pruebas para el metodo returnLoan y luego verificamos que estan fallen.  
 
 ![alt text](assets/shouldIncreasedBookCountWhenLoanIsReturned.png)  
 ![alt text](assets/shouldIncreasedBookCountWhenLoanIsReturned_Test.png)  
@@ -70,17 +70,22 @@ Vicente Garzon Rios.
 ![alt text](assets/shouldLoanSameBookWhenReturnLoan.png)  
 ![alt text](assets/shouldLoanSameBookWhenReturnLoan_Test.png)  
 
-11. Implementamos el método addBook. Sobrescribimos el método hashCode en la clase Book para que los libros con el mismo isbn sean tratados como la misma clave en el HashMap de la clase Library. Esto evita duplicados no deseados y permite gestionar correctamente la cantidad de ejemplares de cada libro.  
+12. Implementamos el método addBook. Sobrescribimos el método hashCode en la clase Book para que los libros con el mismo isbn sean tratados como la misma clave en el HashMap de la clase Library. Esto evita duplicados no deseados y permite gestionar correctamente la cantidad de ejemplares de cada libro.  
 
 ![alt text](assets/addBook_implementation.png)  
 ![alt text](assets/hashCode_implementation.png)  
 
-12. Implementamos el método loanABook. Sobrescribimos el método equals en la clase User para que la comparación entre usuarios se realice en función de su id, garantizando que dos objetos User con el mismo id sean tratados como el mismo usuario.    
+13. Implementamos el método loanABook. Sobrescribimos el método equals en la clase User para que la comparación entre usuarios se realice en función de su id, garantizando que dos objetos User con el mismo id sean tratados como el mismo usuario.    
 
 ![alt text](assets/loanABook_implementation.png)  
 ![alt text](assets/methods_for_loanABook.png)  
 ![alt text](assets/methods_for_loanABook2.png)  
 ![alt text](assets/User_equals.png)  
+
+14. Implementamos el método returnLoan. Implementamos el método equals de la clase Loan para poder realizar la comparativa.  
+
+![alt text](assets/returnLoan_implementation.png)  
+![alt text](assets/loan_Equals.png)  
 
 13. Ejecutamos las pruebas para verificar que todas pasen exitosamente, asegurándonos de que los cambios implementados cumplen con los requisitos establecidos en TDD.  
 

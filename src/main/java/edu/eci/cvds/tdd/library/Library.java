@@ -86,7 +86,11 @@ public class Library {
      * @return the loan with the RETURNED status.
      */
     public Loan returnLoan(Loan loan) {
-        //TODO Implement the login of loan a book to a user based on the UserId and the isbn.
+        Loan loanReturned = getLoan(loan);
+
+        if(loanReturned != null){
+            return actualiceLoan(loanReturned);
+        }
         return null;
     }
 
@@ -150,6 +154,10 @@ public class Library {
         books.put(book, books.get(book) - 1);
     }
 
+    private void increaseBookCount(Book book) {
+        books.put(book, books.get(book) + 1);
+    }
+
     private Loan createLoan(User user, Book book) {
         Loan loan = new Loan();
         loan.setUser(user);
@@ -160,6 +168,22 @@ public class Library {
         decreaseBookCount(book);
         loans.add(loan);
 
+        return loan;
+    }
+
+    private Loan getLoan(Loan loan){
+        for (Loan loan2:loans){
+            if(loan.equals(loan2)){
+                return loan2;
+            }
+        }
+        return null;
+    }
+
+    private Loan actualiceLoan(Loan loan){
+        loan.setStatus(LoanStatus.RETURNED);
+        loan.setReturnDate(LocalDateTime.now());
+        increaseBookCount(loan.getBook());
         return loan;
     }
 }
