@@ -37,10 +37,6 @@ public class Library {
      * @return true if the book was stored false otherwise.
      */
     public boolean addBook(Book book) {
-        if (book == null) {
-            return false;
-        }
-
         if (books.containsKey(book)) {
             books.put(book, books.get(book) + 1);
         } else {
@@ -123,13 +119,15 @@ public class Library {
     }
 
     private Book getBook(String isbn) {
+        Book book = null;
+
         for (Map.Entry<Book, Integer> entry : books.entrySet()) {
             if (entry.getKey().getIsbn().equals(isbn)) {
-                return entry.getKey();
+                book = entry.getKey();
             }
         }
 
-        return null;
+        return book;
     }
 
     private boolean bookAvailable(Book book) {
