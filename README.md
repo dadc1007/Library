@@ -87,10 +87,36 @@ Vicente Garzon Rios.
 ![alt text](assets/returnLoan_implementation.png)  
 ![alt text](assets/loan_Equals.png)  
 
-13. Ejecutamos las pruebas para verificar que todas pasen exitosamente, asegurándonos de que los cambios implementados cumplen con los requisitos establecidos en TDD.  
+15. Ejecutamos las pruebas para verificar que todas pasen exitosamente, asegurándonos de que los cambios implementados cumplen con los requisitos establecidos en TDD.  
 
 ![alt text](assets/successful_tests.png)  
 
 
-x. Agregamos la dependencia de jacoco.  
- ![alt text](assets/jacoco_dependence.png)  
+16. Agregamos la dependencia de jacoco.  
+![alt text](assets/jacoco_dependence.png)  
+
+17. Revisamos el coverage de jacoco.  
+![alt text](assets/jacoco_recovery.png)  
+
+18. Descargamos la imagen del docker.  
+![alt text](assets/download_image_docker.png)  
+
+19. Arrancamos el servicio de SonarQube.  
+![alt text](assets/sonarqube_service.png)  
+
+20. Revisamos el Docker.  
+![alt text](assets/review_docker.png)  
+
+21. Ingresamos al SonarQube y generamos el token.  
+![alt text](assets/generate_token.png)  
+
+22. Instalamos SonarLint.  
+![alt text](assets/Install_SonarLint.png)  
+
+23. Añadimos el plugin de Sonar y las propiedades de Sonar y de Jacoco.
+![alt text](assets/SonarQube_add_pluguin.png)  
+![alt text](assets/properties_sonarqube.png)  
+
+24. Verificamos el coverage de SonarQube.
+![alt text](assets/coverage_SonarQube.png)
+
